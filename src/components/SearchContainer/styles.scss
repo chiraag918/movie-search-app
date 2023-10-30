@@ -1,0 +1,64 @@
+.searchContainer{
+  background: rgba(255, 255, 255, 0.304);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:70%;
+  padding: 25px;
+  border-radius: 10px;
+
+  .searchBar, .dropdown, .dropdownContainer{
+    cursor: pointer;
+    min-width:80px;
+    color:rgb(89, 89, 89);
+    background-color: rgb(243, 242, 242);
+    border: none;
+    border-radius: 8px;
+  }
+
+  .searchBar,.dropdown{
+    padding: 10px;
+    font-size:18px;
+    margin:0px 10px;
+    outline: none;
+  }
+
+  .searchBar{
+   flex:5;
+  }
+
+  .searchBar::placeholder{
+    color:rgb(141, 141, 141);
+  }
+
+  .dropdownContainer{
+    flex: 3;
+    position: relative;
+
+    .dropdown{
+      width: 100%;
+      padding-right:10px;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari and Chrome */
+      appearance:none;
+      padding-right: 30px;
+      background: transparent;
+    }
+
+  }
+
+  .dropdownContainer::after {
+    content: "";
+    background-image: url('../../assets/images/down-arrow.png'); /* Replace with the path to your custom arrow icon */
+    opacity: 0.5;
+    background-size: contain;
+    width: 15px; /* Adjust the width and height as needed */
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust the position as needed */
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+}
