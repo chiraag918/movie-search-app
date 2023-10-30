@@ -1,4 +1,4 @@
-.movieCard__container {
+.movieCard__wrapper {
 	background: rgba(255, 255, 255, 0.304);
 	width: 300px;
 	height: 400px;
@@ -6,6 +6,8 @@
 	margin-top: 40px;
 	position: relative;
 	overflow: hidden;
+	opacity: 0;
+	animation: opacityVisible 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 
 	.movieCard__overview {
 		position: absolute;
@@ -52,7 +54,7 @@
 	}
 }
 
-// .movieCard__container:hover{
+// .movieCard__wrapper:hover{
 
 //   .movieCard__overview{
 //     // position: absolute;
@@ -80,5 +82,14 @@
 	}
 	100% {
 		top: -1000px;
+	}
+}
+
+@keyframes opacityVisible {
+	0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
 	}
 }

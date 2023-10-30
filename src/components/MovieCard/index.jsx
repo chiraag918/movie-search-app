@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
-const MovieCard = () => {
+const MovieCard = ({
+	movie: { title, overview, release_date, popularity },
+}) => {
 	const [mouseOver, setMouseOver] = useState(null);
 
 	const handleHoverEnter = () => {
@@ -14,7 +16,7 @@ const MovieCard = () => {
 
 	return (
 		<div
-			className="movieCard__container"
+			className="movieCard__wrapper"
 			onMouseEnter={handleHoverEnter}
 			onMouseLeave={handleHoverExit}
 		>
@@ -23,7 +25,7 @@ const MovieCard = () => {
 					mouseOver ? "animateEntry" : mouseOver != null ? "animateExit" : ""
 				}`}
 			>
-				hbxABNjknasjnxnsjk
+				{overview}
 			</div>
 			<div className="movieCard__summary">
 				<img
@@ -33,10 +35,10 @@ const MovieCard = () => {
 					width="100%"
 					alt="movie-backdrop"
 				/>
-				<div className="movieTitle">Furious 7</div>
+				<div className="movieTitle">{title}</div>
 				<div className="movieCard__footer">
-					<div className="movieReleaseDate">2015-04-01</div>
-					<div className="moviePopularity">68.343</div>
+					<div className="movieReleaseDate">{release_date}</div>
+					<div className="moviePopularity">{popularity}</div>
 				</div>
 			</div>
 		</div>

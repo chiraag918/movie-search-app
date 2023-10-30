@@ -1,18 +1,36 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./styles.scss";
-import { getMoviesByTitle } from "../../utitlities/utilFunctions";
+import {
+	getMovieGenres,
+	getMoviesByActorAndGenre,
+} from "../../utitlities/utilFunctions";
+import { useDispatch, useSelector } from "react-redux";
+import { GET_MOVIE_LIST } from "../../actions/movieList/actionTypes";
 
 const SearchContainer = () => {
 	const [searchValue, setSearchValue] = useState("");
+	const genreDropdownRef = useRef();
+	const dispatch = useDispatch();
 
 	const handleSearch = async (event) => {
 		const search = event.target.value;
-		setSearchValue(search);
-		console.log(search);
+		const genre = genreDropdownRef.current.value;
 
-		const data = await getMoviesByTitle(search);
+		setSearchValue(search);
+
+		dispatch({
+			type: GET_MOVIE_LIST,
+			payload: { actorName: search, genreId: genre },
+		});
+	};
+
+	const handleGenreChange = async (event) => {
+		const data = await getMovieGenres();
 		console.log(data);
 	};
+
+	const genreList = useSelector((state) => state.genreList.genreListData);
+
 	return (
 		<div className="searchContainer">
 			<input
@@ -23,12 +41,21 @@ const SearchContainer = () => {
 				onChange={handleSearch}
 			/>
 			<div className="dropdownContainer">
-				<select className="dropdown" id="cars" name="cars">
-					<option value="volvo">Volvo</option>
-					<option value="saab">Saab</option>
-					<option value="fiat">Fiat</option>
-					<option value="audi">Audi</option>
-				</select>
+				{genreList && (
+					<select
+						ref={genreDropdownRef}
+						className="dropdown"
+						id="cars"
+						name="cars"
+						onChange={handleGenreChange}
+					>
+						{genreList?.map((option) => (
+							<option key={option.id} value={option.id}>
+								{option.name}
+							</option>
+						))}
+					</select>
+				)}
 			</div>
 		</div>
 	);
