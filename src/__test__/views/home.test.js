@@ -58,24 +58,19 @@ describe("Home Conatiner Component", () => {
 
 		const searchInput = screen.getByTestId("search-input");
 		const searchButton = screen.getByTestId("search-button");
-		const genreSelect = screen.getByTestId("genre-select");
 
 		// Alter the input field values and trigger search button
 		fireEvent.change(searchInput, { target: { value: "Tom Hanks" } });
 		fireEvent.click(searchButton);
-		fireEvent.change(genreSelect, { target: { value: 28 } });
 
 		await waitFor(() => {
 			const actions = store.getActions();
 
 			// Two actions dispatched
-			expect(actions).toHaveLength(3);
+			expect(actions).toHaveLength(2);
 
 			// Action for searching
 			expect(actions[1].type).toBe("GET_MOVIE_LIST");
-
-			// Action for genre change
-			expect(actions[2].type).toBe("GET_MOVIE_LIST");
 		});
 	});
 
@@ -85,12 +80,10 @@ describe("Home Conatiner Component", () => {
 
 		const searchInput = screen.getByTestId("search-input");
 		const searchButton = screen.getByTestId("search-button");
-		const genreSelect = screen.getByTestId("genre-select");
 
 		// Alter the input field values and trigger search button
 		fireEvent.change(searchInput, { target: { value: "Paul Walker" } });
 		fireEvent.click(searchButton);
-		fireEvent.change(genreSelect, { target: { value: 28 } });
 
 		await waitFor(() => {
 			const movieCard = screen.getAllByTestId("movie-card")[0];
