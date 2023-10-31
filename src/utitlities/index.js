@@ -40,5 +40,28 @@ export async function getMoviesByActorAndGenre(actorName, genreId) {
 	return [];
 }
 
-export const isArrayAndHasData = (value) =>
-	Array.isArray(value) && value.length > 0;
+export function isArrayAndHasData(value) {
+	return Array.isArray(value) && value.length > 0;
+}
+
+// Throttle function to rate limit function calls
+export function throttle(fn, delay) {
+	let executeFunction = true,
+		timer;
+
+	return function (args) {
+		const context = this;
+
+		if (executeFunction) {
+			clearTimeout(timer);
+
+			fn.call(context, args);
+
+			executeFunction = false;
+
+			timer = setTimeout(() => {
+				executeFunction = true;
+			}, delay);
+		}
+	};
+}
