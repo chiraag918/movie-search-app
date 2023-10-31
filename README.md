@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# Movies Search App 🎭
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive React application built using React, Redux, and SCSS that allows users to search for movies by actor's name and genre. It leverages [TMDB API 🔗](https://developer.themoviedb.org/reference/intro/getting-started) endpoints to fetch movie data. This README provides instructions on how to set up and run the app and also covers running test cases.
 
-## Available Scripts
+### [Deployment Link 🔗](https://movie-search-app-rho-lovat.vercel.app/)
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Frontend Libraries](#libraries)
+- [Prerequisites](#prerequesites)
+- [Screenshots](#screenshots)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<a name="features"></a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features 🏆
 
-### `npm test`
+- Project setup with Redux state management
+- Search by actor & genre functionality
+- Responsive web app across different screen resolutions
+- Beautiful UI along with wonderful animations & transitions
+- Performance optimisation techniques like throttling API requests employed
+- Covered by unit test cases.
+- Automatic deployment pipeline setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<a name="installation"></a>
 
-### `npm run build`
+## Installation 💿
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+👉🏼 Clone this repository to your local machine:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/chiraag918/movie-search-app.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+👉🏼 Navigate to the project directory:
 
-### `npm run eject`
+```bash
+cd movie-search-app
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+👉🏼 Install the required dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👉🏼 Build using:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run build
+```
 
-## Learn More
+<a name="usage"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Usage 🍽️
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+👉🏼 Start the app using:
 
-### Code Splitting
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Open your browser and visit http://localhost:3000 to access the app.
 
-### Analyzing the Bundle Size
+<a name="testing"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Testing 📝
 
-### Making a Progressive Web App
+👉🏼 Test the app using:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm run test
+```
 
-### Advanced Configuration
+All the test cases will run and the report will be shown on the terminal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<a name="libraries"></a>
 
-### Deployment
+## Frontend Libraries 🖼️
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[React JS(UI)](https://reactjs.org/docs/getting-started.html),
+[Redux](https://redux.js.org/introduction/getting-started),
+[sass](https://sass-lang.com/documentation/),
+[npm](https://www.npmjs.com/)
 
-### `npm run build` fails to minify
+<a name="prerequesites"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Prerequisites
+
+For local developments, the application requires NodeJS (version 18 and above). To make sure this is available on the local machine, try running the following command:
+
+```bash
+$ node --version
+v18.x.x
+```
+
+Include .env file in the root level with the following contents:
+
+```bash
+REACT_APP_MOVIES_API_URL = "https://api.themoviedb.org"
+REACT_APP_MOVIES_API_KEY = "69095fdcd1010ebcc6b1fa56f2537602"
+REACT_APP_MOVIES_IMG_URL = "https://image.tmdb.org/t/p/"
+```
+
+<a name="screenshots"></a>
+
+## Screenshots 📸
+
+#### Desktop:
+
+#### Mobile:
+
+<a name="license"></a>
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
