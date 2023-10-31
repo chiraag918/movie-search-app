@@ -1,7 +1,7 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { GET_MOVIE_LIST } from "../actions/movieList/actionTypes";
 import { getMovieListFailure, getMovieListSuccess } from "../actions/movieList";
-import { getMoviesByActorAndGenre } from "../utitlities/utilFunctions";
+import { getMoviesByActorAndGenre } from "../utitlities";
 
 function* getMovieList(action) {
 	try {

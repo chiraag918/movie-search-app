@@ -1,64 +1,78 @@
-.searchContainer{
-  background: rgba(255, 255, 255, 0.304);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:70%;
-  padding: 25px;
-  border-radius: 10px;
+@import "../../constants/common.scss";
 
-  .searchBar, .dropdown, .dropdownContainer{
-    cursor: pointer;
-    min-width:80px;
-    color:rgb(89, 89, 89);
-    background-color: rgb(243, 242, 242);
-    border: none;
-    border-radius: 8px;
-  }
+.searchContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: $GREY_3;
+	width: 70%;
+	padding: 25px;
+	border-radius: 10px;
 
-  .searchBar,.dropdown{
-    padding: 10px;
-    font-size:18px;
-    margin:0px 10px;
-    outline: none;
-  }
+	.dropdown,
+	.dropdownContainer {
+		min-width: 80px;
+		color: $GREY;
+		background-color: $WHITE_2;
+		border: none;
+		border-radius: 8px;
+		cursor: pointer;
+	}
 
-  .searchBar{
-   flex:5;
-  }
+	.dropdownContainer {
+		flex: 3;
+		position: relative;
 
-  .searchBar::placeholder{
-    color:rgb(141, 141, 141);
-  }
+		.dropdown {
+			width: 100%;
+			padding: 10px;
+			font-size: 18px;
+			outline: none;
+			appearance: none;
+			-moz-appearance: none; /* Firefox */
+			-webkit-appearance: none; /* Safari and Chrome */
+			background: transparent;
+		}
+	}
 
-  .dropdownContainer{
-    flex: 3;
-    position: relative;
+	.dropdownContainer::after {
+		content: "";
+		background-image: url("../../assets/images/down-arrow.png");
+		opacity: 0.5;
+		background-size: contain;
+		width: 15px;
+		height: 15px;
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		transform: translateY(-50%);
+		pointer-events: none;
+	}
+}
 
-    .dropdown{
-      width: 100%;
-      padding-right:10px;
-      -moz-appearance:none; /* Firefox */
-      -webkit-appearance:none; /* Safari and Chrome */
-      appearance:none;
-      padding-right: 30px;
-      background: transparent;
-    }
+@media #{$MediaScreenXs} {
+	.searchContainer {
+		width: 95%;
+		padding: 15px;
+		flex-direction: column;
 
-  }
+		.dropdown,
+		.dropdownContainer {
+			min-width: 100px;
+		}
 
-  .dropdownContainer::after {
-    content: "";
-    background-image: url('../../assets/images/down-arrow.png'); /* Replace with the path to your custom arrow icon */
-    opacity: 0.5;
-    background-size: contain;
-    width: 15px; /* Adjust the width and height as needed */
-    height: 15px;
-    position: absolute;
-    top: 50%;
-    right: 10px; /* Adjust the position as needed */
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
+		.dropdownContainer {
+			width: 100%;
+			margin-top: 10px;
 
+			.dropdown {
+				font-size: 16px;
+			}
+		}
+
+		.dropdownContainer::after {
+			width: 12px;
+			height: 12px;
+		}
+	}
 }

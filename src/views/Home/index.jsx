@@ -1,17 +1,22 @@
-import React, { useEffect } from "react";
-import "./styles.scss";
-import SearchContainer from "../../components/SearchContainer";
-import MovieCard from "../../components/MovieCard";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_GENRE_LIST } from "../../actions/genreList/actionTypes";
+
 import Loader from "../../components/Loader";
+import Fallback from "../../components/Fallback";
+import MovieCard from "../../components/MovieCard";
+import SearchContainer from "../../components/SearchContainer";
+
+import "./styles.scss";
+import { isArrayAndHasData } from "../../utitlities";
 
 const Home = () => {
 	const dispatch = useDispatch();
 
 	const movieList = useSelector((state) => state.movieList);
-	console.log(movieList);
+	const movieListData = movieList.movieListData;
 
+	// Fetch Genre list when UI loads
 	useEffect(() => {
 		dispatch({
 			type: GET_GENRE_LIST,
@@ -21,20 +26,23 @@ const Home = () => {
 	return (
 		<div className="mainContainer">
 			<SearchContainer />
-			{movieList.getMovieListLoading ? (
-				<Loader />
-			) : (
-				<div className="movieCard__container">
-					{!movieList.movieListData
-						? "Welcome"
-						: Array.isArray(movieList.movieListData) &&
-						  movieList.movieListData.length > 0
-						? movieList.movieListData.map((movie) => (
+			<div
+				className={`contentContainer ${!movieListData ? "" : "userInteracted"}`}
+			>
+				{movieList.getMovieListLoading ? (
+					<Loader />
+				) : (
+					<div className="movieCard__container">
+						{isArrayAndHasData(movieListData) ? (
+							movieListData.map((movie) => (
 								<MovieCard key={movie.id} movie={movie} />
-						  ))
-						: ""}
-				</div>
-			)}
+							))
+						) : (
+							<Fallback />
+						)}
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };

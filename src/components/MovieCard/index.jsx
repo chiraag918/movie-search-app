@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import { useCallback, useState } from "react";
 import "./styles.scss";
 
+const getPopularityGroup = (popularity) =>
+	popularity > 80 ? "groupA" : popularity > 40 ? "groupB" : "groupC";
+
+const getPosterUrl = (posterPath) => {
+	const baseURL = process.env.REACT_APP_MOVIES_IMG_URL;
+	const posterSize = "w500";
+	return `${baseURL}${posterSize}/${posterPath}`;
+};
+
 const MovieCard = ({
-	movie: { title, overview, release_date, popularity },
+	movie: { title, overview, release_date, popularity, poster_path },
 }) => {
 	const [mouseOver, setMouseOver] = useState(null);
+	const formattedReleaseDate = new Date(release_date);
 
-	const handleHoverEnter = () => {
+	// Handle hover effects - to show overview of movie
+	const handleHoverEnter = useCallback(() => {
 		setMouseOver(true);
-	};
+	}, []);
 
-	const handleHoverExit = () => {
+	const handleHoverExit = useCallback(() => {
 		setMouseOver(false);
-	};
+	}, []);
 
 	return (
 		<div
@@ -30,15 +41,20 @@ const MovieCard = ({
 			<div className="movieCard__summary">
 				<img
 					className="movieBackdrop"
-					src="https://image.tmdb.org/t/p/w500/cHkhb5A4gQRK6zs6Pv7zorHs8Nk.jpg"
-					height="100%"
-					width="100%"
-					alt="movie-backdrop"
+					src={getPosterUrl(poster_path)}
+					height={"200px"}
+					alt={title}
 				/>
 				<div className="movieTitle">{title}</div>
 				<div className="movieCard__footer">
-					<div className="movieReleaseDate">{release_date}</div>
-					<div className="moviePopularity">{popularity}</div>
+					<div className="movieReleaseDate">
+						Released on
+						<span>{" " + formattedReleaseDate.toLocaleDateString()}</span>
+					</div>
+					<div className={`moviePopularity ${getPopularityGroup(popularity)}`}>
+						{popularity.toFixed(2) + " "}
+						&#9733;
+					</div>
 				</div>
 			</div>
 		</div>

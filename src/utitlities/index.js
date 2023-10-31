@@ -1,5 +1,8 @@
-import { apiKey, baseUrl } from "../constants/appConstants";
+// Utility constants
+export const baseUrl = process.env.REACT_APP_MOVIES_API_URL;
+export const apiKey = process.env.REACT_APP_MOVIES_API_KEY;
 
+// Utility functions
 export async function searchActor(actorName) {
 	const response = await fetch(
 		`${baseUrl}/3/search/person?api_key=${apiKey}&query=${actorName}`
@@ -36,3 +39,6 @@ export async function getMoviesByActorAndGenre(actorName, genreId) {
 	}
 	return [];
 }
+
+export const isArrayAndHasData = (value) =>
+	Array.isArray(value) && value.length > 0;

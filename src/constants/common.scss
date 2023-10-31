@@ -1,0 +1,63 @@
+// CONSTANT COLOR CODES
+$BLACK: #000000;
+$BLACK_2: #323232;
+$WHITE: #ffffff;
+$WHITE_2: #f3f2f2;
+$GREY: #595959;
+$GREY_2: #8d8d8d;
+$GREY_3: #ffffff4e;
+$GREY_4: #353535a2;
+$GREY_5: #383838;
+$GREEN_1: #8eff8ea6;
+$YELOW_1: #ffff91a6;
+$RED_1: #ff7d7da6;
+
+// MEDIA QUERIES
+$MediaXs: 700px;
+$MediaScreenXs: "only screen and (max-width: #{$MediaXs})";
+
+// COMMON ANIMATIONS
+@keyframes opacityAnimation {
+	0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
+@keyframes expand {
+	0% {
+		height: 0%;
+	}
+	100% {
+		height: 90%;
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes animateEntry {
+	0% {
+		top: -1000px;
+	}
+	100% {
+		top: 0px;
+	}
+}
+
+@keyframes animateExit {
+	0% {
+		top: 0px;
+	}
+	100% {
+		top: -1000px;
+	}
+}
