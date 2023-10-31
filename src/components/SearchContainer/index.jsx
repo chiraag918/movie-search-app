@@ -66,6 +66,7 @@ const SearchContainer = () => {
 						id="genre"
 						name="genre"
 						onChange={handleGenreChange}
+						data-testid="genre-select"
 					>
 						{genreList?.map((option) => (
 							<option key={option.id} value={option.id}>

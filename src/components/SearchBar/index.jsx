@@ -10,12 +10,14 @@ const SearchBar = ({ value, onChange, handleSearch }) => {
 				placeholder="Movies by Actor..."
 				value={value}
 				onChange={onChange}
+				data-testid="search-input"
 			/>
 			<img
 				src={SearchIcon}
 				className="searchIcon"
 				alt="search-icon"
 				onClick={handleSearch}
+				data-testid="search-button"
 			/>
 		</div>
 	);

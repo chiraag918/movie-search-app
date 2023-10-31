@@ -30,6 +30,7 @@ const MovieCard = ({
 			className="movieCard__wrapper"
 			onMouseEnter={handleHoverEnter}
 			onMouseLeave={handleHoverExit}
+			data-testid="movie-card"
 		>
 			<div
 				className={`movieCard__overview ${

@@ -39,6 +39,7 @@
 		]
 	},
 	"devDependencies": {
-		"sass": "^1.69.5"
+		"sass": "^1.69.5",
+		"redux-mock-store": "^1.5.4"
 	}
 }
