@@ -118,7 +118,8 @@ REACT_APP_MOVIES_IMG_URL = "https://image.tmdb.org/t/p/"
 <img width="836" alt="Screenshot 2023-10-31 at 2 18 21 PM" src="https://github.com/chiraag918/movie-search-app/assets/39455997/b0719a79-1ec2-47fa-a480-5c9f327e519d">
 
 #### Mobile:
-<img width="392" alt="Screenshot 2023-10-31 at 2 17 29 PM" src="https://github.com/chiraag918/movie-search-app/assets/39455997/9da98465-4a28-4162-9301-bc2dfa7fc712">
+![IMG_4567](https://github.com/chiraag918/movie-search-app/assets/39455997/e1bbb425-dbfe-447b-9fb2-bf9f605d375a)
+
 
 <a name="license"></a>
 
