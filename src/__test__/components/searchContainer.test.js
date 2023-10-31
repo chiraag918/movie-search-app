@@ -46,24 +46,39 @@ describe("Search Container Component", () => {
 
 		const searchInput = screen.getByTestId("search-input");
 		const searchButton = screen.getByTestId("search-button");
-		const genreSelect = screen.getByTestId("genre-select");
 
 		// Alter the input field values and trigger search button
 		fireEvent.change(searchInput, { target: { value: "Tom Hanks" } });
 		fireEvent.click(searchButton);
+
+		await waitFor(() => {
+			const actions = store.getActions();
+
+			// Two actions dispatched
+			expect(actions).toHaveLength(1);
+
+			// Action for searching
+			expect(actions[0].type).toBe("GET_MOVIE_LIST");
+		});
+	});
+
+	// Checks if dropdown change triggers correct dispatch events
+	test("Dropdown functionality", async () => {
+		render(<MockSearchContainer />);
+
+		const genreSelect = screen.getByTestId("genre-select");
+
+		// Alter the dropdown
 		fireEvent.change(genreSelect, { target: { value: 28 } });
 
 		await waitFor(() => {
 			const actions = store.getActions();
 
 			// Two actions dispatched
-			expect(actions).toHaveLength(2);
+			expect(actions).toHaveLength(1);
 
 			// Action for searching
 			expect(actions[0].type).toBe("GET_MOVIE_LIST");
-
-			// Action for genre change
-			expect(actions[1].type).toBe("GET_MOVIE_LIST");
 		});
 	});
 });

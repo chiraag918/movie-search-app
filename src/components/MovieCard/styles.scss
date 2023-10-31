@@ -10,6 +10,7 @@
 	background: $GREY_3;
 	opacity: 0;
 	animation: opacityAnimation 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+	cursor: pointer;
 
 	.movieCard__overview {
 		position: absolute;
@@ -23,6 +24,7 @@
 		padding: 10px 15px;
 		font-size: 18px;
 		overflow: scroll;
+		cursor: text;
 	}
 
 	.movieCard__overview.animateEntry {
@@ -133,7 +135,6 @@
 				.moviePopularity {
 					margin: 4px 0px;
 					padding: 3px;
-					width: 80px;
 				}
 			}
 		}
