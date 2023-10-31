@@ -109,11 +109,16 @@ REACT_APP_MOVIES_IMG_URL = "https://image.tmdb.org/t/p/"
 
 <a name="screenshots"></a>
 
-## Screenshots 📸
+## Screenshots/ Screen Recordings 📸
 
 #### Desktop:
+<img width="1792" alt="Screenshot 2023-10-31 at 2 17 06 PM" src="https://github.com/chiraag918/movie-search-app/assets/39455997/562f4ebb-deb8-456c-a47f-8c02a09be27c">
+
+#### Tablet:
+<img width="836" alt="Screenshot 2023-10-31 at 2 18 21 PM" src="https://github.com/chiraag918/movie-search-app/assets/39455997/b0719a79-1ec2-47fa-a480-5c9f327e519d">
 
 #### Mobile:
+<img width="392" alt="Screenshot 2023-10-31 at 2 17 29 PM" src="https://github.com/chiraag918/movie-search-app/assets/39455997/9da98465-4a28-4162-9301-bc2dfa7fc712">
 
 <a name="license"></a>
 
