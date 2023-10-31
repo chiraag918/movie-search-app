@@ -1,0 +1,45 @@
+@import "../../constants/common.scss";
+
+.mainContainer {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 50px;
+	overflow: hidden;
+
+	.contentContainer {
+		width: 100%;
+		height: 0%;
+
+		.movieCard__container {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			width: 100%;
+			height: 100%;
+			overflow: scroll;
+			gap: 25px;
+			margin: 15px 7px;
+		}
+	}
+
+	.contentContainer.userInteracted {
+		animation: expand 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+	}
+}
+
+@media #{$MediaScreenXs} {
+	.mainContainer {
+		padding: 10px 15px;
+
+		.contentContainer {
+			.movieCard__container {
+				gap: 15px;
+				margin: 10px 5px;
+			}
+		}
+	}
+}

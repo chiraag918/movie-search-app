@@ -1,0 +1,141 @@
+@import "../../constants/common.scss";
+
+.movieCard__wrapper {
+	width: 300px;
+	height: 450px;
+	border-radius: 10px;
+	margin-top: 40px;
+	position: relative;
+	overflow: hidden;
+	background: $GREY_3;
+	opacity: 0;
+	animation: opacityAnimation 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+
+	.movieCard__overview {
+		position: absolute;
+		top: -1000px;
+		color: $WHITE;
+		background-color: $GREY_4;
+		backdrop-filter: blur(50px);
+		height: 100%;
+		width: 100%;
+		animation: none;
+		padding: 10px 15px;
+		font-size: 18px;
+		overflow: scroll;
+	}
+
+	.movieCard__overview.animateEntry {
+		animation: animateEntry 0.7s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+	}
+
+	.movieCard__overview.animateExit {
+		animation: animateExit 5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+	}
+
+	.movieCard__summary {
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+
+		.movieBackdrop {
+			flex: 10;
+			object-fit: cover;
+			margin-bottom: 5px;
+			border-radius: 10px 10px 0 0;
+		}
+
+		.movieTitle,
+		.movieCard__footer {
+			flex: 1;
+			margin: 5px 10px;
+		}
+
+		.movieTitle {
+			font-size: 20px;
+			font-weight: 600;
+		}
+
+		.movieCard__footer {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.movieReleaseDate {
+				margin: 5px 0px;
+				color: $GREY_5;
+				font-size: 17px;
+				width: 100px;
+				line-height: 20px;
+
+				span {
+					font-weight: 600;
+				}
+			}
+
+			.moviePopularity {
+				margin: 5px 0px;
+				padding: 4px;
+				width: 100px;
+				text-align: center;
+				border-radius: 10px;
+			}
+
+			.moviePopularity.groupA {
+				background-color: $GREEN_1;
+			}
+
+			.moviePopularity.groupB {
+				background-color: $YELOW_1;
+			}
+
+			.moviePopularity.groupC {
+				background-color: $RED_1;
+			}
+		}
+	}
+}
+
+@media #{$MediaScreenXs} {
+	.movieCard__wrapper {
+		width: 250px;
+		height: 400px;
+		margin-top: 30px;
+
+		.movieCard__overview {
+			padding: 8px 12px;
+			font-size: 16px;
+		}
+
+		.movieCard__summary {
+			.movieBackdrop {
+				flex: 9;
+				margin-bottom: 4px;
+			}
+
+			.movieTitle,
+			.movieCard__footer {
+				flex: 1;
+				margin: 4px 7px;
+			}
+
+			.movieTitle {
+				font-size: 18px;
+			}
+
+			.movieCard__footer {
+				.movieReleaseDate {
+					margin: 4px 0px;
+					font-size: 15px;
+					width: 80px;
+				}
+
+				.moviePopularity {
+					margin: 4px 0px;
+					padding: 3px;
+					width: 80px;
+				}
+			}
+		}
+	}
+}

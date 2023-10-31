@@ -1,0 +1,78 @@
+@import "../../constants/common.scss";
+
+.searchContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: $GREY_3;
+	width: 70%;
+	padding: 25px;
+	border-radius: 10px;
+
+	.dropdown,
+	.dropdownContainer {
+		min-width: 80px;
+		color: $GREY;
+		background-color: $WHITE_2;
+		border: none;
+		border-radius: 8px;
+		cursor: pointer;
+	}
+
+	.dropdownContainer {
+		flex: 3;
+		position: relative;
+
+		.dropdown {
+			width: 100%;
+			padding: 10px;
+			font-size: 18px;
+			outline: none;
+			appearance: none;
+			-moz-appearance: none; /* Firefox */
+			-webkit-appearance: none; /* Safari and Chrome */
+			background: transparent;
+		}
+	}
+
+	.dropdownContainer::after {
+		content: "";
+		background-image: url("../../assets/images/down-arrow.png");
+		opacity: 0.5;
+		background-size: contain;
+		width: 15px;
+		height: 15px;
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		transform: translateY(-50%);
+		pointer-events: none;
+	}
+}
+
+@media #{$MediaScreenXs} {
+	.searchContainer {
+		width: 95%;
+		padding: 15px;
+		flex-direction: column;
+
+		.dropdown,
+		.dropdownContainer {
+			min-width: 100px;
+		}
+
+		.dropdownContainer {
+			width: 100%;
+			margin-top: 10px;
+
+			.dropdown {
+				font-size: 16px;
+			}
+		}
+
+		.dropdownContainer::after {
+			width: 12px;
+			height: 12px;
+		}
+	}
+}
